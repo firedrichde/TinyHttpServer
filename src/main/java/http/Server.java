@@ -1,6 +1,5 @@
 package http;
 
-import handler.FileDownLoadHandler;
 import handler.Handler;
 import util.Logger;
 
@@ -10,9 +9,6 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author lordWang
@@ -27,7 +23,6 @@ public class Server implements Runnable {
     /**
      * Key : url describe by regex express, Value: handler
      */
-//    private Map<String,Handler> handlerMapRegexUrl;
     private ExecutorService executorService;
     private ServerSocket serverSocket;
     private int timeout;
@@ -38,7 +33,6 @@ public class Server implements Runnable {
         this.serverSocket = null;
         this.handlerMap = new HashMap<>();
         this.timeout = timeout;
-//        this.handlerMapRegexUrl = new HashMap<>();
     }
 
     @Override
@@ -59,19 +53,4 @@ public class Server implements Runnable {
         handlerMap.put(url, handler);
     }
 
-
-//    public static void main(String[] args){
-//        ExecutorService executorService = new ThreadPoolExecutor(10,10,0, TimeUnit.MILLISECONDS,new LinkedBlockingQueue<>());
-//        Server server = new Server(9090,executorService);
-//        server.addHandler("/hello.zip",new FileDownLoadHandler());
-//        executorService.execute(server);
-//        try{
-//            TimeUnit.SECONDS.sleep(300);
-//            executorService.shutdownNow();
-//        }catch (InterruptedException e){
-//
-//        }
-//        System.exit(0);
-//
-//    }
 }

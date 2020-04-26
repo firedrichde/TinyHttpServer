@@ -3,10 +3,8 @@ package handler;
 import http.Request;
 import http.Response;
 import http.StatusCode;
-import sun.rmi.runtime.Log;
 import util.Logger;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -50,7 +48,6 @@ public class NotFoundHandler implements Handler {
         response.setContent(contentMsg);
         response.setParameter("Content-Length", String.valueOf(contentMsg.length()));
         response.setParameter("Content-Type", "text/html;charset=UTF-8");
-//        response.setParameter("Content-Encoding",);
         return response;
     }
 

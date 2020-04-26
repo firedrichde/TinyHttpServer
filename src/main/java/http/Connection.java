@@ -1,6 +1,5 @@
 package http;
 
-import handler.FileDownLoadHandler;
 import handler.Handler;
 import handler.NotFoundHandler;
 import util.Logger;

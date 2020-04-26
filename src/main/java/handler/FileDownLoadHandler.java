@@ -10,7 +10,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.Map;
 
 /**
  * @author lordWang
@@ -52,15 +51,6 @@ public class FileDownLoadHandler implements Handler {
         OutputStream outputStream = response.getOutputStream();
         InputStream inputStream = null;
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-//        StringBuilder headers = new StringBuilder();
-//        Map<String, String> headerMap = response.getHeaderMap();
-//        StatusCode statusCode = response.getStatusCode();
-//        headers.append(response.getProtocol()).append(" ").append(statusCode.getNumber()).append(" ").append(statusCode.getDescription()).append("\n");
-//        for (Map.Entry entry :
-//                headerMap.entrySet()) {
-//            headers.append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
-//        }
-//        headers.append("\n");
         String headers = response.getResponseHeader();
         try {
             inputStream = new FileInputStream(file);
